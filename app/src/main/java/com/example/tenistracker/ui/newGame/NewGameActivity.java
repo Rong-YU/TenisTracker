@@ -20,18 +20,34 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.tenistracker.R;
 
 public class NewGameActivity extends AppCompatActivity {
     ImageView photo_view;
+    Button btn_but_1;
+    Button btn_but_2;
     Button btn_camera;
+    Button btn_save;
+    TextView score_1;
+    TextView score_2;
+
+    //donnees
+    private int but_1 = 0;
+    private int but_2 = 0;
+    private Bitmap photo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_game);
         photo_view = findViewById(R.id.photo_view);
         btn_camera = findViewById(R.id.btn_camera);
+
+        score_1 = findViewById(R.id.score_1);
+        score_2 = findViewById(R.id.score_2);
+        btn_but_1 = findViewById(R.id.btn_score_1);
+        btn_but_2 = findViewById(R.id.btn_score_2);
 
         if(ContextCompat.checkSelfPermission(NewGameActivity.this,
                 Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
@@ -41,6 +57,22 @@ public class NewGameActivity extends AppCompatActivity {
                     },
                     100);
         }
+
+        btn_but_1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                but_1 += 1;
+                score_1.setText(String.valueOf(but_1));
+            }
+        });
+
+        btn_but_2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                but_2 += 1;
+                score_2.setText(String.valueOf(but_2));
+            }
+        });
 
         btn_camera.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,8 +97,12 @@ public class NewGameActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 100) {
-            Bitmap captureImage = (Bitmap) data.getExtras().get("data");
-            photo_view.setImageBitmap(captureImage);
+            photo = (Bitmap) data.getExtras().get("data");
+            photo_view.setImageBitmap(photo);
         }
+    }
+
+    public void save(){
+
     }
 }
