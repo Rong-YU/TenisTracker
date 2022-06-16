@@ -146,7 +146,7 @@ public class NewGameActivity extends AppCompatActivity implements LocationListen
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 100) {
+        if (requestCode == Activity.RESULT_OK) {
             photo = (Bitmap) data.getExtras().get("data");
             photo_view.setImageBitmap(photo);
         }
