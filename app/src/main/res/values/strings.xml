@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TenisTracker</string>
+    <string name="app_name">FootTracker</string>
     <string name="title_home">Home</string>
     <string name="title_history">History</string>
     <string name="btn_new_game">New Game</string>

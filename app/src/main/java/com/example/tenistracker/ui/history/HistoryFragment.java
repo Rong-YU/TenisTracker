@@ -32,7 +32,7 @@ public class HistoryFragment extends Fragment {
 
         listView = binding.listView;
         ArrayList<Game> arrayList = new ArrayList<>();
-        arrayList.add(new Game(1,3,"sadasd",null));
+        arrayList.add(new Game(1,3,"1600 Parkway",null));
         arrayList.add(new Game(2,3,"gasdf",null));
         arrayList.add(new Game(6,3,"wwwwww",null));
         arrayList.add(new Game(6,3,"wwwwww",null));

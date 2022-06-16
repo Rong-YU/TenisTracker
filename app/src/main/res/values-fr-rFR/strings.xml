@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">TenisTracker</string>
+    <string name="app_name">FootTracker</string>
     <string name="title_home">Accueil</string>
     <string name="title_history">Historique</string>
     <string name="btn_new_game">Nouveau match</string>
