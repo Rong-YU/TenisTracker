@@ -32,6 +32,10 @@ import com.example.tenistracker.Game;
 import com.example.tenistracker.R;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.List;
 
 public class NewGameActivity extends AppCompatActivity implements LocationListener {
@@ -183,7 +187,32 @@ public class NewGameActivity extends AppCompatActivity implements LocationListen
                 streetName,
                 photo
         );
+        finish();
         System.out.println(game.toString());
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Connection connection = DriverManager.getConnection("jdbc:mysql://10.0.2.2:3306/MyDB", "aaa", "aaa");
+                    if(connection != null){
+                        String sql = "SELECT * FROM MyTable";
+                        PreparedStatement statement = connection.prepareStatement(sql);
+                        ResultSet resultSet = statement.executeQuery();
+                        System.out.println(resultSet);
+                        while (resultSet.next()) {
+                            String first = resultSet.getString("col1");
+                            String second = resultSet.getString("col2");
+                        }
+                    } else{
+                        System.out.println("connection failed");
+                    }
+
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }}).start();
     }
 
     // Get street name from coordinates
