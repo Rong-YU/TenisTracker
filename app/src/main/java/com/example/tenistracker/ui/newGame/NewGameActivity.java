@@ -56,15 +56,26 @@ public class NewGameActivity extends AppCompatActivity implements LocationListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_game);
 
+        if(savedInstanceState != null) {
+            but_1 = savedInstanceState.getInt("score_1", 0);
+            but_2 = savedInstanceState.getInt("score_2", 0);
+            photo = savedInstanceState.getParcelable("photo");
+        }
+
         lm = (LocationManager) getSystemService(LOCATION_SERVICE);
 
         photo_view = findViewById(R.id.photo_view);
         btn_camera = findViewById(R.id.btn_camera);
+        photo_view.setImageBitmap(photo);
 
         score_1 = findViewById(R.id.score_1);
         score_2 = findViewById(R.id.score_2);
+
         btn_but_1 = findViewById(R.id.btn_score_1);
+        score_1.setText(Integer.toString(but_1));
+
         btn_but_2 = findViewById(R.id.btn_score_2);
+        score_2.setText(Integer.toString(but_2));
 
         btn_save = findViewById(R.id.btn_save);
 
@@ -121,6 +132,15 @@ public class NewGameActivity extends AppCompatActivity implements LocationListen
                 }
             }
         });
+    }
+
+    // Sauvegarder les données avant de passer en mode landscape
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("score_1", but_1);
+        outState.putInt("score_2", but_2);
+        outState.putParcelable("photo", photo);
     }
 
     @Override
