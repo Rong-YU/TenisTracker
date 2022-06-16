@@ -79,6 +79,7 @@ public class NewGameActivity extends AppCompatActivity implements LocationListen
 
         btn_save = findViewById(R.id.btn_save);
 
+        // Permission for location services
         if(ContextCompat.checkSelfPermission(NewGameActivity.this,
                 Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED){
             ActivityCompat.requestPermissions(NewGameActivity.this,
@@ -106,6 +107,7 @@ public class NewGameActivity extends AppCompatActivity implements LocationListen
             }
         });
 
+        // Permission for the camera
         btn_camera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -134,7 +136,7 @@ public class NewGameActivity extends AppCompatActivity implements LocationListen
         });
     }
 
-    // Sauvegarder les données avant de passer en mode landscape
+    // Save data before changing to landscape mode
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
@@ -184,7 +186,7 @@ public class NewGameActivity extends AppCompatActivity implements LocationListen
         System.out.println(game.toString());
     }
 
-
+    // Get street name from coordinates
     @Override
     public void onLocationChanged(@NonNull Location location) {
         try{
