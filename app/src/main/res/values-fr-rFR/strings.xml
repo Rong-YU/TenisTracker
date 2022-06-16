@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TenisTracker</string>
+    <string name="title_home">Accueil</string>
+    <string name="title_history">Historique</string>
+    <string name="btn_new_game">Nouveau match</string>
+    <string name="btn_score_1">But 1</string>
+    <string name="btn_score_2">But 2</string>
+    <string name="equipe1">Equipe 1</string>
+    <string name="equipe2">Equipe 2</string>
+    <string name="openCamera">Prendre photo</string>
+    <string name="save">Sauvegarder</string>
+</resources>

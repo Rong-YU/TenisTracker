@@ -3,4 +3,10 @@
     <string name="title_home">Home</string>
     <string name="title_history">History</string>
     <string name="btn_new_game">New Game</string>
+    <string name="btn_score_1">Goal 1</string>
+    <string name="btn_score_2">Goal 2</string>
+    <string name="equipe1">Team 1</string>
+    <string name="equipe2">Team 2</string>
+    <string name="openCamera">Take photo</string>
+    <string name="save">Save</string>
 </resources>
